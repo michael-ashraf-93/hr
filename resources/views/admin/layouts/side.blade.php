@@ -65,6 +65,29 @@
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fa fa-tasks"></i>
                             <p>
+                                Profile
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/user/{{auth()->user()->id}}/edit_profile" class="nav-link" data-toggle="modal" data-target="#EditProfile">
+                                    <i class="fa fa-tasks nav-icon"></i>
+                                    <p>Edit</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  data-toggle="modal" data-target="#add-new-task">
+                                    <i class="fa fa-plus nav-icon"></i>
+                                    <p>Delete</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview menu-close">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-tasks"></i>
+                            <p>
                                 Tasks
                                 <i class="right fa fa-angle-left"></i>
                             </p>

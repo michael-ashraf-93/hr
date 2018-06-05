@@ -26,7 +26,7 @@ Route::get('/register', 'AuthController@create');
 Route::post('/register', 'AuthController@store');
 //Route::post('/storeuser','AuthController@storeuser');
 
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => ['admin', 'lang']], function () {
     Route::get('/logout', 'AuthController@logout');
     Route::get('/', 'HomeController@index');
 //
@@ -83,6 +83,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('/', 'UserController@Show');
         Route::post('/store', 'UserController@Store');
         Route::get('/{id}/edit', 'UserController@Edit');
+        Route::get('/{id}/edit_profile', 'UserController@EditProfile');
         Route::post('/{id}/update', 'UserController@Update');
         Route::get('/{id}/destroy', 'Usercontroller@Destroy');
     });
@@ -156,8 +157,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::prefix('task')->group(function () {
         Route::get('/', 'TaskController@Show');
         Route::post('/store', 'TaskController@Store');
-        Route::get('/{id}/edit', 'TaskController@Edit');
+//        Route::get('/{id}/edit', 'TaskController@Edit');
         Route::post('/{id}/update', 'TaskController@Update');
         Route::post('/destroy', 'TaskController@Destroy');
+        Route::post('edit', 'TaskController@Edit');
+    });
+
+    Route::get('lang/{lang}', function ($lang) {
+        session()->put('lang', $lang);
+        return back();
     });
 });

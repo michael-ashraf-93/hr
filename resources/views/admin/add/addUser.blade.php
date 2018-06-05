@@ -62,7 +62,7 @@
 
 
                     <div class="form-group">
-                        <label for="lname" class="col-sm-2 control-label">First Name</label>
+                        <label for="lname" class="col-sm-2 control-label">Last Name</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="lname" name="lname">
                             <div class="input-group-append">

@@ -154,8 +154,8 @@
                     <label for="fname" class="cols-sm-2 control-label">First Name</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="fname" id="fname"  placeholder="First Name"/>
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -165,8 +165,8 @@
                     <label for="lname" class="cols-sm-2 control-label">Last Name</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="lname" id="lname"  placeholder="Last Name"/>
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -176,34 +176,32 @@
                     <label for="phone" class="cols-sm-2 control-label">Phone</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone"/>
+                            <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company" class="cols-sm-2 control-label">Company</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="company" id="company"  placeholder="Company"/>
+                            <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label for="company" class="cols-sm-2 control-label">Company</label>
+                    <label for="phone" class="cols-sm-2 control-label">Hire Date</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="company" id="company"  placeholder="Company"/>
+                            <input type="date" class="form-control" id="hire_date" name="hire_date" placeholder="NOW()">
+                            <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
-
-                {{--<div class="form-group">--}}
-                    {{--<label for="gender" class="col-sm-2 control-label">Gender</label>--}}
-                    {{--<div class="cols-sm-10">--}}
-                        {{--<select class="selectpicker" data-live-search="true">--}}
-                            {{--<option value="" disabled selected hidden>--</option>--}}
-                            {{--<option value="male">Male</option>--}}
-                            {{--<option value="female">Female</option>--}}
-                            {{--<option value="other">Other</option>--}}
-                        {{--</select>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
 
 
                 <div class="form-group">
@@ -221,13 +219,34 @@
                 </div>
 
 
+                <div class="form-group">
+                    <label for="salary" class="cols-sm-2 control-label">Salary</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input type="number" step="0.01" class="form-control" name="salary" id="salary"  placeholder="Salary"/>
+                            <span class="input-group-addon">EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="commission" class="cols-sm-2 control-label">Commission</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input type="number" step="0.01" class="form-control" name="commission" id="commission"  placeholder="Commission"/>
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <label for="email" class="cols-sm-2 control-label">Email</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                             <input type="email" class="form-control" name="email" id="email"  placeholder="Email"/>
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -236,8 +255,8 @@
                     <label for="password" class="cols-sm-2 control-label">Password</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                             <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -246,8 +265,8 @@
                     <label for="password_confirmation" class="cols-sm-2 control-label">Confirm Password</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                             <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"  placeholder="Confirm your Password"/>
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -266,3 +285,16 @@
 <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 </body>
 </html>
+
+
+
+@section('js')
+    <script>
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth();
+        d = n.getDate();
+        //    alert(y + "-" + m + "-" + d)
+        $('#hire_date').val(m + "-" + d + "-" + y)
+        //    document.getElementById("Date").val = y + "-" + m + "-" + d;
+    </script>

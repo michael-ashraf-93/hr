@@ -1,5 +1,5 @@
 @extends('admin.layouts.index')
-@include('admin.modals.EditTask')
+{{--@include('admin.modals.EditTask')--}}
 {{--@include('admin.layouts.tables')--}}
 @section('content')
     @if(count($tasks))
@@ -33,11 +33,10 @@
                                             <td>{{ $task->body }}</td>
                                             <td>{{ date('d - m - Y',$task->date) }}</td>
                                             <td>
-                                                <a href="task/{{ $task->id }}/edit" data-toggle="modal" data-target="#exampleModal/{{$task->id}}">
-                                                    <button class="btn btn-primary btn-xs">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                    </button>
-                                                </a>
+                                                <button class="Edit btn btn-primary btn-xs" href="task/{{ $task->id }}/edit"
+                                                        data-toggle="modal" data-target="#editTask" etskid="{{ $task->id }}">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
                                             </td>
                                             <td>
                                                 <button class="btn btn-danger  Destroy" tskid="{{ $task->id }}">
@@ -73,7 +72,7 @@
         </div>
 
     @endif
-
+@include('admin.modals.EditTask')
 @endsection
 
 @section('js')
@@ -98,5 +97,27 @@
                 });
             }
         )
+
+
+        $(document).on('click', '.Edit', function () {
+            var id = $(this).attr('etskid');
+            var _token = '{{ csrf_token() }}';
+            $.ajax({
+                url: '{{ url('task/edit') }}',
+                type: 'post',
+                dataType: 'json',
+                data: { id: id, _token: _token},
+                success: function (data) {
+//                    console.log(data);
+//                    alert(data.created_at)
+                    $('#title').val(data.title)
+                    $('#body').val(data.body)
+                    $('#date').val(data.date)
+                    $('#back').val(data.back)
+                    $('#text').val(data.text)
+                    $('#Form').attr('action', '{{ url('task') }}' +'/' + data.id + '/update')
+                }
+            })
+        })
     </script>
 @endsection

@@ -58,9 +58,18 @@ class AuthController extends Controller
             'fname' => 'required|max:50',
             'lname' => 'required|max:50',
             'phone' => 'required|max:50',
-            'gender' => 'required|max:150',
+            'gender' => 'required|max:50',
+            'hire_date' => 'required|max:50',
+            'salary' => 'required|max:50',
+            'commission' => 'required|max:50',
+            'manager' => 'required|max:50',
+            'job' => 'required|max:50',
+            'department' => 'required|max:50',
+            'location' => 'required|max:50',
+            'country' => 'required|max:50',
+            'region' => 'required|max:50',
             'email' => 'required|max:50',
-            'password' => 'confirmed|required|max:50'
+            'password' => 'confirmed|required|max:50',
         ]);
 
         $company = Company::create([

@@ -18,9 +18,8 @@ class Lang
         if (session()->has('lang')) {
             $lang = session()->get('lang');
             app()->setLocale($lang);
-        } else {
-            app()->setLocale('en');
         }
+
         return $next($request);
     }
 }

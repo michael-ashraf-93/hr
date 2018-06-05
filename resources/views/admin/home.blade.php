@@ -1,6 +1,7 @@
 @extends('admin.layouts.index')
 @include('admin.layouts.inside')
 @include('admin.modals.AddNewTaskModal')
+@include('admin.modals.EditProfile')
 @section('content')
     <link rel="stylesheet" href="{{ url('admin/plugins/fullcalendar/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ url('admin/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
@@ -77,6 +78,8 @@
 
 @endsection
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="{{ url('admin/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
 
     <script>
         $(function () {
@@ -130,7 +133,9 @@
                         @foreach(\App\Task::get() as $task)
                     {
                         title: '{{ $task->title }}',
-                        start: '{{ date('Y-m-d',$task->date) }}',
+                        start: '{{ date('Y-m-d',$task->date_start) }}',
+                        end: '{{ date('Y-m-d',$task->date_end+1) }}',
+                        allDay: false,
                         backgroundColor: '{{ $task->back }}', //red§
                         textColor: '{{ $task->text }}',
                         borderColor: '#000' //red

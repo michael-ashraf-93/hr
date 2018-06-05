@@ -27,10 +27,14 @@ class TaskController extends Controller
             'back' => 'required|max:250',
             'text' => 'required|max:250',
         ]);
+        $date = $request->date;
+        $dates = (explode(" - ",$date));
         Task::create([
             'title' => $request->title,
             'body' => $request->body,
-            'date' => strtotime($request->date),
+            'date_start' => strtotime($dates[0]),
+            'date_end' => strtotime($dates[1]),
+//            'date' => strtotime($request->date),
             'back' => $request->back,
             'text' => $request->text,
             'user_id' => auth()->user()->id,
@@ -38,13 +42,6 @@ class TaskController extends Controller
         ]);
         return redirect()->back();
     }
-
-    public function Edit($id)
-    {
-        $task = Task::where('id', $id)->get();
-        return view('admin.edit.editTask', compact('task'));
-    }
-
 
     public function Update($id, Request $request)
     {
@@ -55,20 +52,27 @@ class TaskController extends Controller
         ]);
         $task = Task::find($id);
         $task->update([
-            'title' => $request['title'],
-            'body' => $request['body'],
-            'date' => $request['date'],
-            'user_id' => auth()->user()->id,
-            'company_id' => auth()->user()->company_id,
+            'title' => $request->title,
+            'body' => $request->body,
+            'date' => strtotime($request->date),
+            'back' => $request->back,
+            'text' => $request->text,
         ]);
 
-        return redirect('/tasks');
+        return redirect('/task');
     }
 
     public function Destroy(Request $request)
     {
         Task::destroy($request->id);
         return response(['status' => true]);
+    }
+
+
+    public function Edit(Request $request)
+    {
+        $task = Task::find($request->id);
+        return response()->json($task);
     }
 
 }

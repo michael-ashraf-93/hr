@@ -122,6 +122,37 @@ class UserController extends Controller
     }
 
 
+
+    public function EditProfile($id)
+    {
+        $users = User::where('id', $id)->get();
+        return view('admin.edit.editUser', compact('users'));
+    }
+
+
+    public function UpdateProfile($id, Request $request)
+    {
+//        dd($request->all());
+        $user = User::find($id);
+        $user->update([
+            'fname' => $request['fname'],
+            'lname' => $request['lname'],
+            'phone' => $request['phone'],
+            'hire_date' => $request['hire_date'],
+            'salary' => $request['salary'],
+            'commission_pct' => $request['commission'],
+            'manager_id' => $request['manager'],
+            'department_id' => $request['department'],
+            'job_id' => $request['job'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password'])
+
+        ]);
+
+        return redirect('/users');
+    }
+
+
 //    public function Destroy($id)
 //    {
 //        $user = User::find($id);

@@ -22,14 +22,12 @@
 <!-- Sparkline -->
 <script src="{{ url('admin/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
 <!-- jvectormap -->
-<script src="{{ url('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ url('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+{{--<script src="{{ url('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>--}}
+{{--<script src="{{ url('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>--}}
 <!-- jQuery Knob Chart -->
 <script src="{{ url('admin/plugins/knob/jquery.knob.js') }}"></script>
 <!-- daterangepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="{{ url('admin/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
-{{--<script src="{{ url('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>--}}
 <!-- datepicker -->
 <script src="{{ url('admin/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 <!-- Bootstrap WYSIHTML5 -->
@@ -39,19 +37,23 @@
 <!-- FastClick -->
 <script src="{{ url('admin/plugins/fastclick/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ url('admin/dist/js/adminlte.js') }}"></script>
+{{--<script src="{{ url('admin/dist/js/adminlte.js') }}"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('admin/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('admin/dist/js/demo.js') }}"></script>
 
+<script src="{{ url('admin/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 
 
+<!-- bootstrap color picker -->
+<script src="{{ url('admin/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 
 
-
-
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="{{ url('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
 <script src="{{ url('admin/plugins/select2/select2.full.min.js') }}"></script>
 <!-- InputMask -->
@@ -66,7 +68,7 @@
 {{--<script src="{{ url('admin/plugins/iCheck/icheck.min.js') }}"></script>--}}
 
 <!-- AdminLTE App -->
-{{--<script src="{{ url('admin/dist/js/adminlte.min.js') }}"></script>--}}
+<script src="{{ url('admin/dist/js/adminlte.min.js') }}"></script>
 
 
 
@@ -75,22 +77,21 @@
         //Initialize Select2 Elements
         $('.select2').select2()
 
-        //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-        //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-        //Money Euro
-        $('[data-mask]').inputmask()
 
-        //Date range picker
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+//Date range picker
         $('#reservation').daterangepicker()
-        //Date range picker with time picker
+        $('#reservation2').timepicker()
         $('#reservationtime').daterangepicker({
             timePicker         : true,
             timePickerIncrement: 30,
             format             : 'MM/DD/YYYY h:mm A'
         })
-        //Date range as a button
         $('#daterange-btn').daterangepicker(
             {
                 ranges   : {
@@ -104,36 +105,6 @@
                 startDate: moment().subtract(29, 'days'),
                 endDate  : moment()
             },
-            function (start, end) {
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-            }
-        )
-
-        //iCheck for checkbox and radio inputs
-        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass   : 'iradio_minimal-blue'
-        })
-        //Red color scheme for iCheck
-        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass   : 'iradio_minimal-red'
-        })
-        //Flat red color scheme for iCheck
-        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-            checkboxClass: 'icheckbox_flat-green',
-            radioClass   : 'iradio_flat-green'
-        })
-
-        //Colorpicker
-        $('.my-colorpicker1').colorpicker()
-        //color picker with addon
-        $('.my-colorpicker2').colorpicker()
-
-        //Timepicker
-        $('.timepicker').timepicker({
-            showInputs: false
-        })
     })
 </script>
 

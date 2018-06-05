@@ -43,50 +43,75 @@
                         </div>
 
 
+                        {{--<div class="form-group">--}}
+                        {{--<label for="date" class="control-label">Date</label>--}}
+                        {{--<div class="input-group">--}}
+                        {{--<input type="date" class="form-control" id="Date" name="date" required>--}}
+                        {{--<div class="input-group-append">--}}
+                        {{--<span class="input-group-text">--}}
+                        {{--<i class="fa fa-calendar"></i>--}}
+                        {{--</span>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+
+
                         <div class="form-group">
-                            <label for="date" class="control-label">Date</label>
+                            <label>Date</label>
                             <div class="input-group">
-                                <input type="date" class="form-control" id="Date" name="date" required>
-                                <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fa fa-calendar"></i>
-                            </span>
+                                <div class="input-group-prepend">
                                 </div>
+                                <input type="text" class="form-control" id="reservation" name="date">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label>Time picker:</label>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control timepicker">
+
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+
+                        {{--<div class="bootstrap-timepicker">--}}
                         {{--<div class="form-group">--}}
-                            {{--<label for="type" class="control-label">Type</label>--}}
-                            {{--<div class="input-group" id="type" name="type">--}}
-                                {{--<span class="badge badge-secondary"><input type="radio" name="type" id="type"--}}
-                                                                           {{--value="secondary"></span>&nbsp;--}}
-                                {{--<span class="badge badge-primary"><input type="radio" name="type" id="type"--}}
-                                                                         {{--value="primary"></span>&nbsp;--}}
-                                {{--<span class="badge badge-success"><input type="radio" name="type" id="type"--}}
-                                                                         {{--value="success"></span>&nbsp;--}}
-                                {{--<span class="badge badge-info"><input type="radio" name="type" id="type"--}}
-                                                                      {{--value="info"></span>&nbsp;--}}
-                                {{--<span class="badge badge-warning"><input type="radio" name="type" id="type"--}}
-                                                                         {{--value="warning"></span>&nbsp;--}}
-                                {{--<span class="badge badge-danger"><input type="radio" name="type" id="type"--}}
-                                                                        {{--value="danger"></span>&nbsp;--}}
-                                {{--<span class="badge badge-dark"><input type="radio" name="type" id="type"--}}
-                                                                      {{--value="dark"></span>&nbsp;--}}
-                                {{--<span class="badge badge-light"><input type="radio" name="type" id="type" value="light"></span>--}}
-                            {{--</div>--}}
+                        {{--<label>Time picker:</label>--}}
+
+                        {{--<div class="input-group">--}}
+                        {{--<input type="text" class="form-control timepicker">--}}
+
+                        {{--<div class="input-group-append">--}}
+                        {{--<span class="input-group-text"><i class="fa fa-clock-o"></i></span>--}}
                         {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- /.input group -->--}}
+                        {{--</div>--}}
+                        {{--<!-- /.form group -->--}}
+                        {{--</div>--}}
+
 
                         <div class="form-group">
                             <label for="type" class="control-label">Background Color</label>
                             <div class="input-group">
-                                <input type="color" class="form-control" id="back" name="back" value="#ffffff" required>
+                                <input type="text" class="form-control my-colorpicker1" id="back" name="back"
+                                       value="#ffffff" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="type" class="control-label">Text Color</label>
                             <div class="input-group">
-                                <input type="color" class="form-control" id="text" name="text" value="#000000" required>
+                                <input type="text" class="form-control my-colorpicker1" id="text" name="text"
+                                       value="#000000" required>
                             </div>
                         </div>
 
@@ -110,12 +135,27 @@
     </div>
 </div>
 
-<script>
-    n =  new Date();
-    y = n.getFullYear();
-    m = n.getMonth();
-    d = n.getDate();
-//    alert(y + "-" + m + "-" + d)
-    $('#Date').val(m + "-" + d + "-" + Y)
-//    document.getElementById("Date").val = y + "-" + m + "-" + d;
+
+{{--@section('js')--}}
+{{--<script>--}}
+{{--n = new Date();--}}
+{{--y = n.getFullYear();--}}
+{{--m = n.getMonth();--}}
+{{--d = n.getDate();--}}
+{{--//    alert(y + "-" + m + "-" + d)--}}
+{{--$('#Date').val(m + "-" + d + "-" + y)--}}
+{{--//    document.getElementById("Date").val = y + "-" + m + "-" + d;--}}
+{{--</script>--}}
+
+{{--<script type="text/javascript">--}}
+{{--$(function () {--}}
+{{--$('#datetimepicker1').datetimepicker();--}}
+{{--});--}}
+{{--</script>--}}
+{{--@endsection--}}
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
 </script>
